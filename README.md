@@ -37,7 +37,7 @@ npm install
 
 _(También se puede utilizar `yarn install`)_ 
 
-4. Configurar las variables de entorno. Renombrar el archivo `.env.example` a `.env.local` y agregar tu API Key de TMDB:
+4. Configurar las variables de entorno. Crear el archivo `.env.local` y agregar tu API Key de TMDB:
 
 ```env
 NEXT_PUBLIC_TMDB_API_KEY=tu_api_key_aqui
@@ -49,11 +49,11 @@ NEXT_PUBLIC_TMDB_API_KEY=tu_api_key_aqui
 Una vez instaladas las dependencias y configurada la API Key, iniciar el servidor de desarrollo con:
 
 ```bash
-npm run dev
+yarn dev
 
 ```
 
-_(O alternativamente `yarn dev`)_
+_(O alternativamente `npm run dev`)_
 
 La aplicación estará disponible y corriendo en [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000).
 
@@ -86,12 +86,8 @@ _Vista de detalle dinámico de una película seleccionada._
 
 ## Declaración de uso de IA
 
-Para el desarrollo de este trabajo práctico se utilizó Inteligencia Artificial como herramienta de asistencia técnica. Su uso se enfocó principalmente en la simplificación y refactorización lógica del código.
+Para el desarrollo de este trabajo práctico se utilizó Inteligencia Artificial como herramienta de asistencia técnica para algunos casos. Su uso se enfocó principalmente en la simplificación del código.
 
 Un caso de uso destacado fue la implementación de `Promise.all` en la página principal para ejecutar múltiples peticiones asíncronas de Axios a los diferentes endpoints de TMDB de manera concurrente, en lugar de secuencial. Esto permitió optimizar la carga de los estados y mejorar significativamente el rendimiento al momento de renderizar las distintas secciones de películas.
-
-```
-
-Una vez que guardes este `README.md`, ya cumpliste con otra parte importante de la rúbrica de evaluación de tu profesor. ¿Querés que sigamos ahora con la lógica de la página de detalle dinámico (`src/app/movie/[id]/page.js`) para que cada tarjeta navegue a su información específica?
 
 ```
