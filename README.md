@@ -15,7 +15,7 @@ Filmistry es una aplicación web enfocada en el consumo de APIs externas desde c
    ```bash
    git clone <url-de-tu-repositorio>
 
-```
+``
 
 2. Acceder al directorio del proyecto:
 ```bash
