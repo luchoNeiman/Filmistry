@@ -16,10 +16,10 @@ Filmistry es una aplicación web enfocada en el consumo de APIs externas desde c
 
 1. Clonar el repositorio en tu máquina local:
 
-   ```bash
-   git clone <url-de-tu-repositorio>
+```bash
+git clone <url-de-tu-repositorio>
 
-   ```
+```
 
 2. Acceder al directorio del proyecto:
 
@@ -35,7 +35,9 @@ npm install
 
 ```
 
-_(También se puede utilizar `yarn install`)_ 4. Configurar las variables de entorno. Renombrar el archivo `.env.example` a `.env.local` y agregar tu API Key de TMDB:
+_(También se puede utilizar `yarn install`)_ 
+
+4. Configurar las variables de entorno. Renombrar el archivo `.env.example` a `.env.local` y agregar tu API Key de TMDB:
 
 ```env
 NEXT_PUBLIC_TMDB_API_KEY=tu_api_key_aqui
