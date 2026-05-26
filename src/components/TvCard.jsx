@@ -1,14 +1,12 @@
-import Link from "next/link";
-const MovieCard = ({ movie }) => {
-    // Desestructuramos los atributos clave que vienen de la API de TMDB para Movie.
-    const { id, title, poster_path, release_date, vote_average } = movie;
+const TvCard = ({ TvShow }) => {
+    // Desestructuramos los atributos clave que vienen de la API de TMDB para TV Show.
+    const { id, name, poster_path, first_air_date, vote_average } = TvShow;
 
-    // Base URL para imágenes
     const imageUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500${poster_path}`
         : "https://via.placeholder.com/500x750?text=Sin+Imagen";
 
-    // Formateo la puntuación a un decimal
+    // Formateo la puntuación a un decimal 
     const rating = vote_average ? vote_average.toFixed(1) : "N/A";
 
     return (
@@ -18,39 +16,38 @@ const MovieCard = ({ movie }) => {
                 <div className="relative aspect-[2/3] w-full bg-zinc-800">
                     <img
                         src={imageUrl}
-                        alt={title}
+                        alt={name}
                         className="w-full h-full object-cover"
                         loading="lazy"
                     />
                     {/* Badge de Puntuación */}
-                    <div className="absolute top-2 right-2 bg-black/80 text-yellow-400 font-bold text-xs px-2 py-1 rounded-md border border-yellow-400/30">
+                    <div className="absolute top-2 right-2 bg-black/80 text-emerald-400 font-bold text-xs px-2 py-1 rounded-md border border-emerald-400/30">
                         ⭐ {rating}
                     </div>
                 </div>
 
-                {/* Información de la Película */}
+                {/* Información de la Serie */}
                 <div className="p-4">
-                    <h3 className="text-white font-semibold text-base line-clamp-2 min-h-[3rem]" title={title}>
-                        {title}
+                    <h3 className="text-white font-semibold text-base line-clamp-2 min-h-[3rem]" title={name}>
+                        {name}
                     </h3>
                     <p className="text-zinc-400 text-xs mt-1">
-                        📅 {release_date ? release_date.split("-")[0] : "Sin fecha"}
+                        📺 Primera emisión: {first_air_date ? first_air_date.split("-")[0] : "Sin fecha"}
                     </p>
                 </div>
             </div>
 
-            {/* Botón de Enlace al Detalle requerido por la consigna */}
+            {/* Botón de Enlace al Detalle de Serie */}
             <div className="p-4 pt-0">
                 <Link
-                    href={`/movie/${id}`}
-                    className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 px-4 rounded-lg transition-colors duration-200"
+                    href={`/tv/${id}`}
+                    className="block w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm py-2 px-4 rounded-lg transition-colors duration-200"
                 >
                     Ver detalle
                 </Link>
             </div>
         </div>
+    )
+}
 
-    );
-};
-
-export default MovieCard;
+export default TvCard
