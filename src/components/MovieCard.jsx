@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 const MovieCard = ({ movie }) => {
     // Desestructuramos los atributos clave que vienen de la API de TMDB para Movie.
     const { id, title, poster_path, release_date, vote_average } = movie;
@@ -16,11 +17,13 @@ const MovieCard = ({ movie }) => {
             <div>
                 {/* Contenedor de la Imagen */}
                 <div className="relative aspect-[2/3] w-full bg-zinc-800">
-                    <img
+                    <Image
                         src={imageUrl}
                         alt={title}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        width={500}
+                        height={750}
                     />
                     {/* Badge de Puntuación */}
                     <div className="absolute top-2 right-2 bg-black/80 text-yellow-400 font-bold text-xs px-2 py-1 rounded-md border border-yellow-400/30">

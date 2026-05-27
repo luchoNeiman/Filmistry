@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-const TvCard = ({ TvShow }) => {
+const TvCard = ({ tvShow }) => {
     // Desestructuramos los atributos clave que vienen de la API de TMDB para TV Show.
-    const { id, name, poster_path, first_air_date, vote_average } = TvShow;
+    const { id, name, poster_path, first_air_date, vote_average } = tvShow;
 
     const imageUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -21,6 +21,8 @@ const TvCard = ({ TvShow }) => {
                         alt={name}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        width={500}
+                        height={750}
                     />
                     {/* Badge de Puntuación */}
                     <div className="absolute top-2 right-2 bg-black/80 text-emerald-400 font-bold text-xs px-2 py-1 rounded-md border border-emerald-400/30">
