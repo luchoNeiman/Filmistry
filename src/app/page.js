@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { endpoints } from "../constants/endpoints";
 import MovieSection from "@/components/MovieSection";
+import TvSection from "@/components/TvSection";
 import LoadingMessage from "@/components/LoadingMessage";
 import ErrorMessage from "@/components/ErrorMessage";
 
@@ -66,19 +67,22 @@ export default function Home() {
 
 
   return (
-    <main>
-      {/* BANNER LÓGICO */}
-      {/* Al estar definido dentro de page.js, este banner jamás va a aparecer en las vistas de detalle */}
-      <section>
-        <h1>Acá irá el Banner Principal (solo visible en el inicio)</h1>
-      </section>
+  <main>
+    {/* Banner Principal exclusivo de la página de inicio */}
+    <section>
+      <h1>Banner Principal de Filmistry</h1>
+    </section>
 
-      {/* RENDERIZADO DE SECCIONES CON LA DATA OBTENIDA */}
-      <MovieSection title="Películas en tendencia" data={data.trending} type="movie" />
-      <MovieSection title="Películas populares" data={data.popular} type="movie" />
-      <MovieSection title="Mejor puntuadas" data={data.topRated} type="movie" />
-      <MovieSection title="En cartelera" data={data.nowPlaying} type="movie" />
-      <MovieSection title="Próximos estrenos" data={data.upcoming} type="movie" />
-    </main>
-  );
+    {/* Secciones de Películas */}
+    <MovieSection title="Películas en tendencia" data={data.trending} />
+    <MovieSection title="Películas populares" data={data.popular} />
+    <MovieSection title="Mejor puntuadas" data={data.topRated} />
+    <MovieSection title="En cartelera" data={data.nowPlaying} />
+    <MovieSection title="Próximos estrenos" data={data.upcoming} />
+
+    {/* Secciones de Series */}
+    <TvSection title="Series populares" data={data.popularTv} />
+    <TvSection title="Series mejor puntuadas" data={data.topRatedTv} />
+  </main>
+);
 }
