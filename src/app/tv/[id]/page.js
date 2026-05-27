@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import axios from "axios";
@@ -48,6 +49,9 @@ export default function TvDetailPage() {
     // Renderizado lógico con los atributos específicos de series (TV Show)
     return (
         <main>
+            <Link href="/">
+                Volver al inicio
+            </Link>
             {/* Nombre de la serie (usa 'name' en lugar de 'title') */}
             <h1>{data.name}</h1>
 

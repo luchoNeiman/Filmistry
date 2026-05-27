@@ -15,15 +15,17 @@ export default function Home() {
     popular: [],
     topRated: [],
     nowPlaying: [],
-    upcoming: []
-  })
+    upcoming: [],
+    popularTv: [],
+    topRatedTv: [],
+  });
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
 
   useEffect(() => {
-    const fetchAllMovies = async () => {
+    const fetchAllData = async () => {
       try {
         // Hago todos los pedidos a los diferentes endpoints en paralelo
         const [
@@ -31,13 +33,17 @@ export default function Home() {
           popularRes,
           topRatedRes,
           nowPlayingRes,
-          upcomingRes
+          upcomingRes,
+          popularTvRes,
+          topRatedTvRes
         ] = await Promise.all([
           axios.get(endpoints.trendingMovies),
           axios.get(endpoints.popularMovies),
           axios.get(endpoints.topRatedMovies),
           axios.get(endpoints.nowPlayingMovies),
-          axios.get(endpoints.upcomingMovies)
+          axios.get(endpoints.upcomingMovies),
+          axios.get(endpoints.popularTv),
+          axios.get(endpoints.topRatedTv)
         ]);
 
         // Guardo los resultados de cada endpoint en su respectiva propiedad
@@ -46,18 +52,20 @@ export default function Home() {
           popular: popularRes.data.results,
           topRated: topRatedRes.data.results,
           nowPlaying: nowPlayingRes.data.results,
-          upcoming: upcomingRes.data.results
+          upcoming: upcomingRes.data.results,
+          popularTv: popularTvRes.data.results, // 4. Guardamos la data de series
+          topRatedTv: topRatedTvRes.data.results,
         });
         setLoading(false);
 
       } catch (err) {
-        console.log("Error al cargar las peliculas: ", err);
+        console.log("Error al cargar los datos: ", err);
         setError(err);
         setLoading(false);
       }
     };
 
-    fetchAllMovies();
+    fetchAllData();
   }, []);
 
   // Control de las vistas de estado (Cargando o Error) antes de renderizar la página
@@ -67,22 +75,21 @@ export default function Home() {
 
 
   return (
-  <main>
-    {/* Banner Principal exclusivo de la página de inicio */}
-    <section>
-      <h1>Banner Principal de Filmistry</h1>
-    </section>
+    <main>
+      <section>
+        <h1>Acá irá el Banner Principal (solo visible en el inicio)</h1>
+      </section>
 
-    {/* Secciones de Películas */}
-    <MovieSection title="Películas en tendencia" data={data.trending} />
-    <MovieSection title="Películas populares" data={data.popular} />
-    <MovieSection title="Mejor puntuadas" data={data.topRated} />
-    <MovieSection title="En cartelera" data={data.nowPlaying} />
-    <MovieSection title="Próximos estrenos" data={data.upcoming} />
+      {/* Renderizado lógico de Películas */}
+      <MovieSection title="Películas en tendencia" data={data.trending} type="movie" />
+      <MovieSection title="Películas populares" data={data.popular} type="movie" />
+      <MovieSection title="Mejor puntuadas" data={data.topRated} type="movie" />
+      <MovieSection title="En cartelera" data={data.nowPlaying} type="movie" />
+      <MovieSection title="Próximos estrenos" data={data.upcoming} type="movie" />
 
-    {/* Secciones de Series */}
-    <TvSection title="Series populares" data={data.popularTv} />
-    <TvSection title="Series mejor puntuadas" data={data.topRatedTv} />
-  </main>
-);
+      {/* 5. Renderizado lógico de Series */}
+      <TvSection title="Series populares" data={data.popularTv} />
+      <TvSection title="Series mejor puntuadas" data={data.topRatedTv} />
+    </main>
+  );
 }

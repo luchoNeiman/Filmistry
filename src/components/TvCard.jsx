@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 const TvCard = ({ TvShow }) => {
     // Desestructuramos los atributos clave que vienen de la API de TMDB para TV Show.
     const { id, name, poster_path, first_air_date, vote_average } = TvShow;
@@ -14,7 +16,7 @@ const TvCard = ({ TvShow }) => {
             <div>
                 {/* Contenedor de la Imagen */}
                 <div className="relative aspect-[2/3] w-full bg-zinc-800">
-                    <img
+                    <Image
                         src={imageUrl}
                         alt={name}
                         className="w-full h-full object-cover"

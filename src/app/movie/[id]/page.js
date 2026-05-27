@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
@@ -47,6 +48,9 @@ export default function MovieDetailPage() {
 
     return (
         <main>
+            <Link href="/">
+                Volver al inicio
+            </Link>
             {/* Título */}
             <h1>{data.title}</h1>
 
