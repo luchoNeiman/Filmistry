@@ -4,7 +4,7 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10 lg:px-16">
         <div>
           <p className="text-xs uppercase tracking-[0.35em] text-cyan-100/50">Filmistry</p>
-          <p className="mt-1 text-sm text-white/80">Dark Glassmorphism experience</p>
+          <p className="mt-1 text-sm text-white/80">La interfaz del séptimo arte.</p>
         </div>
 
         <nav className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">

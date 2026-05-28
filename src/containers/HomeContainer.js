@@ -104,7 +104,7 @@ export default function Home() {
                     </h1>
 
                     <p className="mt-8 max-w-3xl text-base leading-8 text-zinc-200/80 sm:text-lg">
-                        La interfaz del séptimo arte.
+                        Más allá de la pantalla hay miles de historias esperando. Sumergite en nuestra colección y dejá que la próxima escena te encuentre a vos.
                     </p>
 
                     <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
