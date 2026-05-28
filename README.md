@@ -89,3 +89,8 @@ _Vista de detalle dinámico de una película seleccionada._
 Para el desarrollo de este trabajo práctico se utilizó Inteligencia Artificial como herramienta de asistencia técnica para algunos casos. Su uso se enfocó principalmente en la simplificación del código.
 
 Un caso de uso destacado fue la implementación de `Promise.all` en la página principal para ejecutar múltiples peticiones asíncronas de Axios a los diferentes endpoints de TMDB de manera concurrente, en lugar de secuencial. Esto permitió optimizar la carga de los estados y mejorar significativamente el rendimiento al momento de renderizar las distintas secciones de películas.
+
+Adicionalmente, se utilizó asistencia puntual para:
+
+- Ajustes visuales en componentes de presentación (hero principal, tarjetas y secciones) sin modificar la lógica de negocio ni las peticiones a TMDB. Más que nada clases de tailwind modernas.
+- Sustitución de íconos personalizados por íconos predefinidos de Heroicons para mantener consistencia en la interfaz.
