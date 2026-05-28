@@ -78,11 +78,13 @@ El proyecto consume los siguientes endpoints de la API v3 de TMDB (`https://api.
 
 ## Capturas de pantalla
 
-_(Nota: Reemplazá estas rutas por las imágenes reales de tu aplicación una vez que termines el diseño)_
+![Hero](image.png)
+![Peliculas](image-1.png)
+![Series](image-2.png)
+![detalle serie](image-3.png)
+![detalle pelicula](image-4.png)
+![Loader](image-5.png)
 
-_Vista principal con las grillas de películas por categoría._
-
-_Vista de detalle dinámico de una película seleccionada._
 
 ## Declaración de uso de IA
 
