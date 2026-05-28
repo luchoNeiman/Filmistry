@@ -3,7 +3,7 @@ import Image from "next/image";
 import { StarIcon, CalendarDaysIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 const MovieCard = ({ movie }) => {
     // Desestructuro los atributos clave que vienen de la API de TMDB para Movie.
-    const { id, title, poster_path, release_date, vote_average } = movie;
+    const { id, title, overview, poster_path, release_date, vote_average } = movie;
 
     // Base URL para imágenes
     const imageUrl = poster_path
@@ -12,6 +12,7 @@ const MovieCard = ({ movie }) => {
 
     // Formateo la puntuación a un decimal
     const rating = vote_average ? vote_average.toFixed(1) : "N/A";
+    const summary = overview?.trim() || "Sinopsis no disponible por el momento.";
 
     return (
         <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_24px_70px_-28px_rgba(0,0,0,0.95)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:scale-[1.015] hover:border-cyan-300/40 hover:shadow-[0_24px_90px_-24px_rgba(34,211,238,0.25)]">
@@ -44,8 +45,8 @@ const MovieCard = ({ movie }) => {
                     <h3 className="line-clamp-2 text-balance text-lg font-bold leading-tight text-white" title={title}>
                         {title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-zinc-300/70">
-                        Una tarjeta de cristal oscuro con foco en la portada y una lectura más cinematográfica.
+                    <p className="mt-2 line-clamp-3 text-sm leading-6 text-zinc-300/70">
+                        {summary}
                     </p>
                 </div>
 

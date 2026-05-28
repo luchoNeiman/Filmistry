@@ -3,7 +3,7 @@ import Link from "next/link";
 import { StarIcon, CalendarDaysIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 const TvCard = ({ tvShow }) => {
     // Desestructuramos los atributos clave que vienen de la API de TMDB para TV Show.
-    const { id, name, poster_path, first_air_date, vote_average } = tvShow;
+    const { id, name, overview, poster_path, first_air_date, vote_average } = tvShow;
 
     const imageUrl = poster_path
         ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -11,6 +11,7 @@ const TvCard = ({ tvShow }) => {
 
     // Formateo la puntuación a un decimal 
     const rating = vote_average ? vote_average.toFixed(1) : "N/A";
+    const summary = overview?.trim() || "Sinopsis no disponible por el momento.";
 
     return (
         <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_24px_70px_-28px_rgba(0,0,0,0.95)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:scale-[1.015] hover:border-emerald-300/40 hover:shadow-[0_24px_90px_-24px_rgba(16,185,129,0.22)]">
@@ -43,8 +44,8 @@ const TvCard = ({ tvShow }) => {
                     <h3 className="line-clamp-2 text-balance text-lg font-bold leading-tight text-white" title={name}>
                         {name}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-zinc-300/70">
-                        Una tarjeta pensada para una lectura nocturna, con énfasis en la portada y una jerarquía más limpia.
+                    <p className="mt-2 line-clamp-3 text-sm leading-6 text-zinc-300/70">
+                        {summary}
                     </p>
                 </div>
 
