@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
 
     return (
         <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_24px_70px_-28px_rgba(0,0,0,0.95)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:scale-[1.015] hover:border-cyan-300/40 hover:shadow-[0_24px_90px_-24px_rgba(34,211,238,0.25)]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent_45%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.15),_transparent_45%)] opacity-0 transition duration-300 group-hover:opacity-100" />
             <div className="relative aspect-[2/3] w-full overflow-hidden bg-zinc-900">
                 <Image
                     src={imageUrl}
@@ -25,7 +25,7 @@ const MovieCard = ({ movie }) => {
                     width={500}
                     height={750}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
                 <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-black/55 px-3 py-1.5 text-xs font-semibold text-amber-200 backdrop-blur-md">
                     <StarIcon className="h-3.5 w-3.5 text-amber-300" aria-hidden="true" />
                     {rating}
